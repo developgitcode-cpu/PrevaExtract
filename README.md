@@ -1,76 +1,126 @@
-# PrevaExtract
+# 📋 PrevaExtract
 
-### *Solution Python de génération automatisée de tableaux Excel à partir de documents PDF hétérogènes*
+**Solution Python de génération automatisée de tableaux Excel à partir de documents PDF hétérogènes**
 
-## 🏦**Contexte du projet**
+---
 
-Prevarisk est une entreprise indépendante spécialisée dans l’audit, le conseil et la formation en matière de prévention des risques professionnels.
+## 🎯 Présentation
 
-L’entreprise doit gérer un grand volume de fiches produits dangereux, fournies par différents clients et sous des formats PDF variés et non standardisés.
+**PrevaExtract** est une application Python conçue pour **Prevarisk**, entreprise spécialisée dans l'audit et la prévention des risques professionnels.
 
-Problématique : 
+Elle automatise l'extraction d'informations clés depuis des fichiers PDF non standardisés (fiches produits dangereux) et génère des tableaux Excel structurés, exploitables et opérationnels.
 
-Retrouver et exploiter rapidement des informations clés (ex. code UN, dénomination du produit, classe de danger, etc.) dans ces documents est difficile et chronophage.
+### Problématique résolue
+- ❌ Extraction manuelle et chronophage d'informations dans des PDF hétérogènes
+- ✅ Automatisation complète du traitement documentaire
+- ✅ Génération rapide de fichiers Excel formatés et exploitables
 
-## 🎯 **Objectif du projet**
+---
 
-Concevoir une application Python capable de :
+## 🚀 Fonctionnalités
 
-- Lire automatiquement un ensemble de fichiers PDF,
-- Extraire les informations clés définies par Prevarisk,
-- Générer un fichier Excel structuré, avec une ligne par produit et des colonnes correspondant aux champs d’intérêt (ex. code UN, danger principal, fabricant, etc.),
-- Offrir une interface graphique intuitive (PyQt6) pour simplifier l’utilisation par des non-techniciens.
+- **Lecture automatisée de PDF** : traitement par lot de fichiers PDF
+- **Extraction intelligente** : identification et récupération des champs clés (code UN, produit, dangers, fabricant, etc.)
+- **Export structuré** : génération de fichiers Excel avec une ligne par produit
+- **Interface graphique intuitive** : PyQt6 pour une utilisation simple par des non-techniciens
+- **Exécutables autonomes** : compilation PyInstaller pour distribution sans dépendances Python
 
-L’objectif final est que l’outil soit utilisé au quotidien par Prevarisk pour automatiser une partie du traitement documentaire.
+---
 
-## ⚙️ **Technologies et outils**
+## 📦 Installation
 
-- **Langage :** Python
-- **Interface utilisateur :** PyQt6 (widgets, signaux/slots, layouts)
-- **Extraction PDF :** PyPDF2 & pdfplumber
-- **Analyse du texte :** Expressions régulières (`re` )
-- **Packaging :** PyInstaller (création d’un exécutable autonome)
-- **Outils de planification à venir :** Kanban / méthode Agile légère (Notion board)
+### Prérequis
+- Python 3.8+
+- pip
 
-## 🧠 **Défis techniques rencontrés**
+### Étapes
 
-L’un des principaux défis du projet réside dans :
+1. **Cloner le repository**
+   ```bash
+   git clone <repository-url>
+   cd prevaextract1.0
+   ```
 
-- La structure incohérente des fichiers PDF, entraînant un désordre dans le texte extrait :
-    
-    certaines données côte à côte visuellement finissent très éloignées lors de la lecture par PyPDF2.
-    
-- La nécessité de concevoir des règles robustes d’extraction (regex) pour identifier correctement les champs malgré ces incohérences.
+2. **Créer un environnement virtuel (recommandé)**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   # ou
+   venv\Scripts\activate  # Windows
+   ```
 
-Ce problème structurel a conduit à repenser l’architecture du code et à envisager des traitements plus fins (par zone, ou via pdfplumber).
+3. **Installer les dépendances**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## 🧩 **Organisation et gestion de projet**
+---
 
-- **Autonomie complète :** conception, développement et tests menés seul.
-- Communication directe avec la dirigeante de Prevarisk pour valider les fonctionnalités et les besoins.
-- **Approche agile à mettre en place :**
-    - Découpage du projet en itérations (sprints courts de 1 à 2 semaines).
-    - Tableau de suivi sur Notion.
-    - Points hebdomadaires d’avancement.
-- **Documentation prévue :**
-    - **Technique :** architecture du code, dépendances, guide d’installation.
-    - **Utilisateur :** guide d’usage de l’interface graphique.
+## 🏃 Utilisation
 
-## 💡 **Compétences développées**
+### Lancer l'application GUI
 
-**Techniques :**
+```bash
+python main.py
+```
 
-- Extraction et traitement automatisé de texte (PDF, regex)
-- Développement d’interface graphique (PyQt6)
-- Packaging et déploiement d’applications Python
-- Architecture logicielle et gestion des exceptions
+L'interface graphique PyQt6 s'ouvrira, permettant de :
+- Charger des fichiers PDF
+- Lancer l'extraction
+- Consulter et exporter les résultats en Excel
 
-**Gestion de projet :**
+### Architecture du code
 
-- Recueil et formalisation du besoin client
-- Suivi d’avancement et communication avec le commanditaire
-- Mise en place d’une démarche Agile adaptée à un projet individuel
+```
+prevaextract1.0/
+├── main.py                 # Point d'entrée (GUI PyQt6)
+├── requirements.txt        # Dépendances
+├── core/
+│   ├── fds_extract.py      # Logique d'extraction PDF
+│   └── pdf_manager.py      # Gestion des fichiers PDF
+├── services/
+│   └── excel_writer.py     # Génération fichiers Excel
+├── ui/
+│   └── main_window.py      # Interface graphique PyQt6
+├── assets/
+│   └── icon/               # Ressources (icônes, etc.)
+└── build/                  # Fichiers de compilation PyInstaller
+```
 
-## 🚀 **Prochaines étapes**
+---
 
-1. Projet fini
+## 🔧 Développement
+
+### Ajouter une nouvelle extraction
+
+1. Modifier les patterns regex dans `core/fds_extract.py`
+2. Tester avec un fichier PDF de test
+3. Valider le résultat Excel généré
+
+### Modifier l'interface
+
+- Éditer `ui/main_window.py` (PyQt6)
+- Relancer `main.py` pour voir les changements
+
+### Générer un exécutable standalone
+
+```bash
+pyinstaller --onefile --windowed --name PrevaExtract main.py
+```
+
+L'exécutable sera dans `dist/PrevaExtract.exe`
+
+---
+
+## 📊 Exemple de sortie
+
+**Entrée :** Fichiers PDF hétérogènes avec fiches produits  
+**Sortie :** Fichier Excel structuré
+
+![alt text](imageUI.png)
+![alt text](imageExcel.png)
+---
+
+## 📝 Documentation supplémentaire
+
+- **Fiche projet détaillée** : [FicheProjet.md](FicheProjet.md)
