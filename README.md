@@ -56,12 +56,6 @@ Ce problème structurel a conduit à repenser l’architecture du code et à env
     - **Technique :** architecture du code, dépendances, guide d’installation.
     - **Utilisateur :** guide d’usage de l’interface graphique.
 
-## 🧪 **État d’avancement**
-
-- ✅ Prototype fonctionnel sans interface (lecture PDF → extraction → export Excel) validé par Prevarisk.
-- 🔄 Refonte en cours avec interface PyQt6 pour une utilisation quotidienne.
-- 🧩 Étape actuelle : conception de l’UI et intégration avec la logique d’extraction existante.
-
 ## 💡 **Compétences développées**
 
 **Techniques :**
@@ -79,8 +73,4 @@ Ce problème structurel a conduit à repenser l’architecture du code et à env
 
 ## 🚀 **Prochaines étapes**
 
-1. Finaliser l’interface graphique (PyQt6)
-2. Intégrer les modules d’extraction et de génération Excel
-3. Mettre en place un mini Kanban sur Notion pour le suivi Agile
-4. Rédiger la documentation technique et utilisateur
-5. Livraison du prototype complet à Prevarisk
+1. Projet fini
